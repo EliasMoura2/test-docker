@@ -19,5 +19,5 @@ COPY . .
 # CMD ["node", "index.js"]
 # ejecuta un comando
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
 # ejecuta el script dentro del package.json
