@@ -1,19 +1,17 @@
 FROM node:14.15.1
+# version de node
 
-WORKDIR /usr/src/app
+WORKDIR /app
+# donde estara el proyecto
 
-ENV TINI_VERSION v0.18.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
-RUN chmod +x /tini
+COPY package*.json ./
+# copia el package*.json para tener las dependencias
 
-ADD index.js .
+RUN npm install
+# una vez copiado ejecuta npm install
 
-COPY package.json .
-RUN npm install --production
-
-# expone el puerto 3000 del contenedor 
-EXPOSE 3000
-
-ENTRYPOINT [ "/tini", "--" ]
+COPY . .
+# copia los archivos locales al directorio de trabajo
 
 CMD ["node", "index.js"]
+# ejecuta un comando
