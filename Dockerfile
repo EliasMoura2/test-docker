@@ -13,5 +13,8 @@ RUN npm install
 COPY . .
 # copia los archivos locales al directorio de trabajo
 
-CMD ["node", "index.js"]
+# CMD ["node", "index.js"]
 # ejecuta un comando
+
+CMD ["npm", "start"]
+# ejecuta el script dentro del package.json
