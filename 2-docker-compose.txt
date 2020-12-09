@@ -1,0 +1,33 @@
+version: '3' 
+# version docker-compose
+services:
+# contenedores que vamos a usar
+  web:
+    # image: api-serve
+    container_name: api-docker-node
+    # nombre de la app
+    restart: always
+    # si hay un problema reinicia
+    build: .
+    # crear a partir del dockerfile
+    ports:
+      - "5000:3000"
+    # networks:
+      # - mern-app
+    # depends_on:
+      # - mongo
+    links: 
+      - mongo
+    volumes: 
+      # permite crear archivos en ambas direcciones
+      - .:/usr/src/app
+  mongo:
+    container_name: mymongondb
+    image: mongo
+    # imagen en la que se basa
+    ports:
+      - "27018:27017"
+    # networks:
+      # - mern-app
+    # volumes:
+      # - mongo-data:/data/db

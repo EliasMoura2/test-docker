@@ -16,6 +16,9 @@ RUN npm install
 COPY . .
 # copia los archivos locales al directorio de trabajo
 
+# expone el puerto 3000 del contenedor 
+EXPOSE 3000
+
 # CMD ["node", "index.js"]
 # ejecuta un comando
 
