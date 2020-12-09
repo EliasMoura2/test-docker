@@ -8,9 +8,12 @@ RUN chmod +x /tini
 
 ADD index.js .
 
-COPY . .
-RUN npm install
+COPY package.json .
+RUN npm install --production
 
+# expone el puerto 3000 del contenedor 
 EXPOSE 3000
+
+ENTRYPOINT [ "/tini", "--" ]
 
 CMD ["node", "index.js"]

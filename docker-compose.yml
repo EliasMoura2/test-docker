@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      # puerto local : puerto contenedor
+      - "4000:3000"
+    environment: 
+      - "NODE_ENV=production"
