@@ -1,7 +1,10 @@
 FROM node:14.15.1
 # version de node
 
-WORKDIR /app
+RUN mkdir -p /usr/src/app
+# crear una carpeta donde va a estar el codigo
+
+WORKDIR /usr/src/app
 # donde estara el proyecto
 
 COPY package*.json ./
