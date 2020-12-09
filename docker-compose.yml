@@ -1,7 +1,7 @@
 version: '3' 
 services:
   web:
-    container_name: api-docker-node2
+    container_name: api-docker-njs
     restart: always
     build: .
     ports:
@@ -11,7 +11,7 @@ services:
     volumes: 
       - .:/usr/src/app
   mongo:
-    container_name: mymongondb
+    container_name: mymongodb
     image: mongo
     ports:
       - "27018:27017"
